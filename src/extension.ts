@@ -6,7 +6,7 @@ import { WorkspaceFolder } from 'vscode';
 
 class XmakeConfigurationProvider implements vscode.DebugConfigurationProvider {
 	resolveDebugConfiguration(folder: WorkspaceFolder | undefined, config: vscode.DebugConfiguration, token?: vscode.CancellationToken): vscode.ProviderResult<vscode.DebugConfiguration> {
-        config.type = 'python'; 
+        config.type = 'node'; 
         config.name = 'Launch';
         config.request = 'launch';
         config.stopOnEntry = true;
