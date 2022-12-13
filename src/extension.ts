@@ -4,12 +4,39 @@ import * as vscode from 'vscode';
 import { WorkspaceFolder } from 'vscode';
 
 
+async function getPythonExtension(): Promise<any> {
+	const pyExtensionId = 'ms-python.python';
+	const pyExt = vscode.extensions.getExtension(pyExtensionId);
+
+	if (!pyExt) {
+		return undefined;
+	}
+	if (!pyExt.isActive) {
+		await pyExt.activate();
+	}
+
+	return pyExt;
+}
+
 class XmakeConfigurationProvider implements vscode.DebugConfigurationProvider {
-	resolveDebugConfiguration(folder: WorkspaceFolder | undefined, config: vscode.DebugConfiguration, token?: vscode.CancellationToken): vscode.ProviderResult<vscode.DebugConfiguration> {
-        config.type = 'node'; 
-        config.name = 'Launch';
-        config.request = 'launch';
-        config.stopOnEntry = true;
+
+	// public provideDebugConfigurations(folder: WorkspaceFolder | undefined, token?: vscode.CancellationToken): vscode.ProviderResult<vscode.DebugConfiguration[]> {
+	// 	return [{
+	// 		name: `XMake`,
+	// 		type: 'xmake',
+	// 		request: 'launch',
+	// 	}]
+	// }
+
+	public resolveDebugConfiguration(folder: WorkspaceFolder | undefined, debugConfig: vscode.DebugConfiguration, token?: vscode.CancellationToken): vscode.ProviderResult<vscode.DebugConfiguration> {
+		// const pyExt = getPythonExtension();
+
+		debugConfig.type = 'python';
+		debugConfig.name = 'Launch';
+		debugConfig.request = 'launch';
+		debugConfig.stopOnEntry = true;
+
+		const config = {name: "Test Node", request:"launch", type: "python", program:debugConfig.program}
 
 		return config;
 	}

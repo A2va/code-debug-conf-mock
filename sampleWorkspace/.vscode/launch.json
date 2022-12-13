@@ -4,8 +4,8 @@
         {
             "name": "Launch",
             "request": "launch",
-            "type": "xmake",
-            "program": "${workspaceFolder}/test.js"
+            "type": "xmake", 
+            "program": "${workspaceFolder}/test.py"
         }
     ]
 }
