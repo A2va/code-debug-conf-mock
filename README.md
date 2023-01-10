@@ -1,3 +1,3 @@
-## Debug configuration mock
+# VSCode extension playground
 
-This is a mock for [microsoft/vscode#166862](https://github.com/microsoft/vscode/issues/166862)
+* `launch-debug`: Test with `DebugConfigurationProvider`
