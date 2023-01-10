@@ -1,6 +1,6 @@
 {
-  "name": "xmake-test",
-  "displayName": "xmake-test",
+  "name": "ext-playground",
+  "displayName": "ext-playground",
   "description": "xmake",
   "version": "0.0.1",
   "engines": {
@@ -10,26 +10,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:xmake-test.helloWorld",
-    "onDebugResolve:xmake"
+    "onCommand:ext-playground.helloWorld"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "xmake-test.helloWorld",
+        "command": "ext-playground.helloWorld",
         "title": "Hello World"
-      }
-    ],
-    "debuggers": [
-      {
-        "type": "xmake",
-        "configurationAttributes": {
-          "target": {
-          "type": "string",
-          "description":"the xmake target name"
-          }
-        }
       }
     ]
   },
